@@ -9,10 +9,11 @@ const Navbar = () =>{
     const activeStyle = 'underline underline-offset-4'
 
     return(
-        <nav className="flex justify-between items-center fixed z-10 top-0 w-full py-5 px-8 text-sm font-light">
+        <nav className="flex justify-between items-center fixed z-10 top-0 w-full py-5 px-8 text-sm font-light bg-white">
             <ul className="flex items-center gap-3">
                 <li className="font-semibold text-lg">
-                    <NavLink to ='/'>
+                    <NavLink to ='/'
+                    onClick={()=> context.setSearchByCategory()}>
                         Shop
                     </NavLink>
                 </li>
@@ -45,10 +46,10 @@ const Navbar = () =>{
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to ='/toys'
-                    onClick={()=> context.setSearchByCategory('toys')}
+                    <NavLink to ='/shoes'
+                    onClick={()=> context.setSearchByCategory('shoes')}
                     className={({isActive})=>isActive?activeStyle:undefined}>
-                        Toys
+                        Shoes
                     </NavLink>
                 </li>
                 <li>
@@ -82,7 +83,7 @@ const Navbar = () =>{
                     </NavLink>
                 </li>
                 <li className="flex items-center">
-                    <ShoppingBagIcon className=" h-6 w-6 text-black"/>
+                    <ShoppingBagIcon onClick={()=>context.openCheckoutSideMenu()} className="hover:cursor-pointer h-6 w-6 text-black"/>
                     <div>{context.cartProducts.length}</div>
                 </li>
             </ul>
