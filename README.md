@@ -1,2 +1,2 @@
-# Enlace a github pages
+# Enlace a Netlify
 
